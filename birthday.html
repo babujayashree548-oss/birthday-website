@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chat 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#5b2a42;
+}
+
+/* START SCREEN */
+.start{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:#e8c1dd;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  z-index:9999;
+}
+
+#typeText{
+  font-size:22px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:white;
+  color:#ff4da6;
+  font-weight:bold;
+}
+
+/* HEADER */
+.header{
+  background:#ff4da6;
+  color:white;
+  padding:15px;
+  text-align:center;
+  font-weight:bold;
+}
+
+/* PROFILE */
+.profile{
+  text-align:center;
+  margin:10px;
+}
+
+.profile img{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:50% 20%;
+  border:4px solid #ff4da6;
+}
+
+/* CHAT */
+.chat{
+  max-width:500px;
+  margin:auto;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+}
+
+.msg{
+  padding:10px 14px;
+  margin:8px;
+  border-radius:12px;
+  max-width:75%;
+  font-size:14px;
+}
+
+.left{
+  background:white;
+  align-self:flex-start;
+}
+
+.right{
+  background:#ffb6d9;
+  align-self:flex-end;
+}
+
+/* CAKE */
+.cake-page{
+  display:none;
+  text-align:center;
+  padding-top:50px;
+}
+
+.cake{
+  font-size:90px;
+}
+
+.flame{
+  font-size:30px;
+}
+
+.next{
+  display:none;
+  margin-top:10px;
+  background:#ff4da6;
+  color:white;
+}
+
+/* QUOTES */
+.quotes{
+  display:none;
+  text-align:center;
+  padding:20px;
+  background:#fff0f5;
+  height:100vh;
+}
+
+.card{
+  background:white;
+  padding:15px;
+  margin:10px auto;
+  border-radius:15px;
+  max-width:400px;
+  box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- START -->
+<div class="start" id="start">
+  <h2 id="typeText"></h2>
+  <button id="startBtn" onclick="startApp()" style="display:none;">Start 💖</button>
+</div>
+
+<!-- HEADER -->
+<div class="header">💖 WhatsApp 💖</div>
+
+<!-- PROFILE -->
+<div class="profile">
+  <img src="MOTHER_IN_LAW_IMAGE_1.jpg">
+  <h3 style="color:#ff4da6;">Amma 💖</h3>
+</div>
+
+<!-- CHAT -->
+<div class="chat" id="chat">
+  <div class="msg right"> Hi ma💖</div>
+  <div class="msg right"> cheers to another year ma👋</div>
+  <div class="msg right"> A Small Suprise for u💖</div>
+  <div class="msg right">click the next button💖</div>
+
+  <button onclick="goCake()">Next 🎂</button>
+</div>
+
+<!-- CAKE -->
+<div class="cake-page" id="cakePage">
+  <div class="cake">🎂<br><span id="flame">🔥</span></div>
+
+  <button onclick="blow()">💨 Blow Candle</button>
+
+  <h3 id="wish" style="display:none;color:#ff4da6;">🎉 Happy Birthday Amma 💖</h3>
+
+  <button class="next" id="nextBtn" onclick="goQuotes()">Next ➡️</button>
+</div>
+
+<!-- QUOTES -->
+<div class="quotes" id="quotes">
+  <h2 style="color:#ff4da6;">💖 For You ma 💖</h2>
+  
+  <div class="card">✨ என் இரண்டாவது அம்மாவாக என் மீது அன்பு காட்டும்💖</div>
+  <div class="card">என் அன்பான அம்மாவுக்கு இனிய பிறந்தநாள் வாழ்த்துக்கள் 🎂❤️!</div>
+ </div>
+
+<script>
+
+/* START TYPING */
+let text = "💖 This is for you Amma...!";
+let i = 0;
+
+function typeStart(){
+  if(i < text.length){
+    document.getElementById("typeText").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeStart, 70);
+  } else {
+    document.getElementById("startBtn").style.display = "block";
+  }
+}
+
+window.onload = typeStart;
+
+/* START */
+function startApp(){
+  document.getElementById("start").style.display="none";
+}
+
+/* GO CAKE */
+function goCake(){
+  document.getElementById("chat").style.display="none";
+  document.getElementById("cakePage").style.display="block";
+}
+
+/* BLOW */
+function blow(){
+  document.getElementById("flame").style.display="none";
+  document.getElementById("wish").style.display="block";
+  document.getElementById("nextBtn").style.display="block";
+}
+
+/* GO QUOTES */
+function goQuotes(){
+  document.getElementById("cakePage").style.display="none";
+  document.getElementById("quotes").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
